@@ -1398,13 +1398,17 @@
         document.querySelector('.error-message').style.display = 'none';
         document.querySelector('.sent-message').style.display = 'none';
       
-        emailjs.send('service_r1d94fy', 'template_cw77ajj', {
-          name: "Test",
-          email: "test@mail.com",
-          subject: "Sujet test",
-          message: "Ceci est un test manuel"
-        });
-        
+        emailjs.sendForm('service_r1d94fy', 'template_cw77ajj', this)
+          .then(function(response) {
+            document.querySelector('.loading').style.display = 'none';
+            document.querySelector('.sent-message').style.display = 'block';
+            document.getElementById('contact-form').reset();
+          }, function(error) {
+            document.querySelector('.loading').style.display = 'none';
+            document.querySelector('.error-message').style.display = 'block';
+            document.querySelector('.error-message').innerText = 'Une erreur est survenue. Veuillez réessayer.';
+            console.error('Erreur EmailJS:', error);
+          });
       });
     </script>
     
