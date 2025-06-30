@@ -1727,6 +1727,25 @@
       emailjs.init("cVAVlFR89t0txb-Vz"); // à remplacer par ta clé publique
     })();
   </script>
+  <script>
+      document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+      
+        // Affiche le loader
+        document.querySelector('.loading').style.display = 'block';
+        document.querySelector('.error-message').style.display = 'none';
+        document.querySelector('.sent-message').style.display = 'none';
+      
+        emailjs.send("service_6akvhgw", "template_cw77ajj", {
+          name: "Test",
+          email: "test@mail.com",
+          subject: "Sujet test",
+          message: "Ceci est un test manuel"
+        });
+        
+      });
+    </script>
+    
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>

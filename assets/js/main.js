@@ -248,26 +248,4 @@
     }
   });
 
-  // EmailJS initialization
-  document.getElementById('contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-  
-    // Affiche le loader
-    document.querySelector('.loading').style.display = 'block';
-    document.querySelector('.error-message').style.display = 'none';
-    document.querySelector('.sent-message').style.display = 'none';
-  
-    emailjs.sendForm('service_6akvhgw', 'template_cw77ajj', this)
-      .then(function(response) {
-        document.querySelector('.loading').style.display = 'none';
-        document.querySelector('.sent-message').style.display = 'block';
-        document.getElementById('contact-form').reset();
-      }, function(error) {
-        document.querySelector('.loading').style.display = 'none';
-        document.querySelector('.error-message').style.display = 'block';
-        document.querySelector('.error-message').innerText = 'Une erreur est survenue. Veuillez réessayer.';
-        console.error('Erreur EmailJS:', error);
-      });
-  });
-
 })(jQuery);
