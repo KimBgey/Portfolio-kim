@@ -257,7 +257,7 @@
     document.querySelector('.error-message').style.display = 'none';
     document.querySelector('.sent-message').style.display = 'none';
   
-    emailjs.sendForm('TON_SERVICE_ID', 'TON_TEMPLATE_ID', this)
+    emailjs.sendForm('service_6akvhgw', 'template_cw77ajj', this)
       .then(function(response) {
         document.querySelector('.loading').style.display = 'none';
         document.querySelector('.sent-message').style.display = 'block';
